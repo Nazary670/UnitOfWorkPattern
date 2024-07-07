@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UnitOfWorkPattern.Context;
 
@@ -11,9 +12,11 @@ using UnitOfWorkPattern.Context;
 namespace UnitOfWorkPattern.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240707102931_InItDb_V2")]
+    partial class InItDb_V2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,42 +24,6 @@ namespace UnitOfWorkPattern.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("UnitOfWorkPattern.Models.Entities.Car", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDisplayToClient")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("MakerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ModelName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("YearOfMade")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cars", "Vehicle");
-                });
 
             modelBuilder.Entity("UnitOfWorkPattern.Models.Entities.Condition", b =>
                 {
@@ -104,7 +71,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8836),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6373),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             TagName = "lbl",
@@ -113,7 +80,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8846),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6385),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             TagName = "lbl",
@@ -122,7 +89,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8848),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6387),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             TagName = "lbl",
@@ -131,7 +98,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8850),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6391),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             TagName = "lbl",
@@ -140,7 +107,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8852),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6393),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 1,
@@ -150,7 +117,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8854),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6395),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 5,
@@ -160,7 +127,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8856),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6397),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 5,
@@ -170,7 +137,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8858),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6399),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 1,
@@ -180,7 +147,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8860),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6401),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 8,
@@ -190,7 +157,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 10,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8862),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6403),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 8,
@@ -200,7 +167,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 11,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8864),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6405),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 1,
@@ -210,7 +177,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 12,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8867),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6407),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 9,
@@ -220,7 +187,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 13,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8868),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6409),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 9,
@@ -230,7 +197,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 14,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8871),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6411),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 9,
@@ -240,7 +207,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 15,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8873),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6413),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 9,
@@ -250,7 +217,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 16,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8875),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6415),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 9,
@@ -260,7 +227,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 17,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8878),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6417),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 1,
@@ -270,7 +237,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 18,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8880),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6420),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 17,
@@ -279,7 +246,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 19,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8882),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6421),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 17,
@@ -288,7 +255,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 20,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8884),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6423),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 17,
@@ -297,7 +264,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 21,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8886),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6425),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 1,
@@ -307,7 +274,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 22,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8887),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6427),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 21,
@@ -316,7 +283,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 23,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8890),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6429),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 21,
@@ -325,7 +292,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 24,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8892),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6470),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 21,
@@ -334,7 +301,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 25,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8894),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6472),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 2,
@@ -344,7 +311,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 26,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8895),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6474),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 25,
@@ -354,7 +321,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 27,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8898),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6476),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 26,
@@ -363,7 +330,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 28,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8900),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6478),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 26,
@@ -372,7 +339,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 29,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8902),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6480),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 26,
@@ -381,7 +348,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 30,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8904),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6482),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 25,
@@ -391,7 +358,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 31,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8906),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6484),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 30,
@@ -400,7 +367,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 32,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8908),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6486),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 30,
@@ -409,7 +376,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 33,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8910),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6489),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 30,
@@ -418,7 +385,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 34,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8912),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6491),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 25,
@@ -428,7 +395,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 35,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8914),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6493),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 34,
@@ -437,7 +404,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 36,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8916),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6495),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 34,
@@ -446,7 +413,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 37,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8918),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6497),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 34,
@@ -455,7 +422,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 38,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8920),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6499),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 2,
@@ -465,7 +432,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 39,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8922),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6501),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 38,
@@ -475,7 +442,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 40,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8924),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6503),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 39,
@@ -484,7 +451,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 41,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8925),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6505),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 39,
@@ -493,7 +460,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 42,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8927),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6507),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 39,
@@ -502,7 +469,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 43,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8929),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6508),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 38,
@@ -512,7 +479,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 44,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8932),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6510),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 43,
@@ -521,7 +488,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 45,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8933),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6512),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 43,
@@ -530,7 +497,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 46,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8935),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6514),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 43,
@@ -539,7 +506,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 47,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8937),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6516),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 38,
@@ -549,7 +516,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 48,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8939),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6519),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 47,
@@ -558,7 +525,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 49,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8941),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6521),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 47,
@@ -567,7 +534,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 50,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8943),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6523),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 47,
@@ -576,7 +543,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 51,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8945),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6525),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 35,
@@ -586,7 +553,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 52,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8947),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6526),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 51,
@@ -595,7 +562,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 53,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8949),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6529),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 51,
@@ -604,7 +571,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 54,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(8951),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6531),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 51,
@@ -613,7 +580,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 55,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(9000),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6533),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 4,
@@ -623,7 +590,7 @@ namespace UnitOfWorkPattern.Migrations
                         new
                         {
                             Id = 56,
-                            CreatedTime = new DateTime(2024, 7, 7, 14, 6, 26, 746, DateTimeKind.Local).AddTicks(9002),
+                            CreatedTime = new DateTime(2024, 7, 7, 13, 59, 29, 190, DateTimeKind.Local).AddTicks(6534),
                             IsDeleted = false,
                             IsDisplayToClient = true,
                             ParentConditionId = 4,
