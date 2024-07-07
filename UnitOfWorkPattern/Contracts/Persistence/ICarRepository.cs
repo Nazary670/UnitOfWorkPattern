@@ -6,6 +6,8 @@ namespace UnitOfWorkPattern.Contracts.Persistence
     {
         Task<IEnumerable<Car>> GetCarsAsync();
 
+        Task DeleteAsync(int CarId);
+
     }
     //The end.
 }
